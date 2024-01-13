@@ -29,7 +29,6 @@ export const GeneratePage = () => {
         className="mx-auto flex h-14 w-[90%] max-w-lg flex-col gap-4 lg:mx-auto lg:flex lg:max-w-xl"
       >
         <Input
-          maxLength={5}
           placeholder="Estabelecimento *"
           error={errors.establishment?.message as string}
           {...register('establishment')}
