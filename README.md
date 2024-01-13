@@ -13,7 +13,7 @@ O ZixPay Ticket é uma excelente ferramenta para aqueles que buscam uma maneira 
 
 ## Stack utilizada
 
-**Front-end:** React, TypeScript, Vite, TailwindCSS, React Hook Form, TanStack and Radix.
+**Front-end:** React, TypeScript, Vite, TailwindCSS, React Hook Form and Radix.
 
 **Back-end:** Node, TypeScript, Nest, PostgreSQL, Prisma and Docker.
 
@@ -55,9 +55,9 @@ Pré-requisitos: Node v18.12.0 (LTS)
   npm install
 
   # criar um container docker:
-  docker run -d --name zixpay -p 5432:5432 
-    -e POSTGRESQL_USERNAME=postgres 
-    -e POSTGRESQL_PASSWORD=docker 
+  docker run -d --name zixpay -p 5432:5432
+    -e POSTGRESQL_USERNAME=postgres
+    -e POSTGRESQL_PASSWORD=docker
     -e POSTGRESQL_DATABASE=zixpay bitnami/postgresql:latest
 
   # executar o projeto:
@@ -66,7 +66,7 @@ Pré-requisitos: Node v18.12.0 (LTS)
 ## Rotas
 
  -  Generate dinamic page: http://localhost:3000/generate-page
- -  Home page: http://localhost:3000/dinamic-page-token 
+ -  Home page: http://localhost:3000/dinamic-page-token
  -  Checkout: http://localhost:3000/checkout
  -  Payment: http://localhost:3000/payment
  -  Feedback: http://localhost:3000/feedback
