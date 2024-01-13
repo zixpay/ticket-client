@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialised;
+  text-rendering: optimizeLegibility;
+}
+
+color: {
+  outline: '#42BD97';
+}
+
+/* Remove o destaque do preenchimento automático no Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Para o Firefox */
+input:-moz-autofill,
+input:-moz-autofill:hover,
+input:-moz-autofill:focus {
+    background-color: transparent;
+}
+
+/* Para o Safari */
+input:-webkit-autofill {
+    -webkit-text-fill-color: [sua cor aqui] !important;
+    -webkit-box-shadow: 0 0 0px 1000px [sua cor de fundo aqui] inset !important;
+}

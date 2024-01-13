@@ -1,0 +1,64 @@
+{
+  "name": "zixpay-ticket",
+  "author": "Bruno Vilefort",
+  "description": "ZixPay Ticket is a tool that allows users to split bill payments into up to three installments, facilitating financial management and preventing debts.",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@headlessui/react": "1.7.17",
+    "@hookform/resolvers": "^3.3.2",
+    "@radix-ui/react-radio-group": "^1.1.3",
+    "@radix-ui/react-select": "2.0.0",
+    "@react-br-forms/cpf-cnpj-mask": "1.0.6",
+    "@tanstack/react-query": "^4.29.19",
+    "autoprefixer": "^10.4.14",
+    "axios": "^1.4.0",
+    "clsx": "^2.0.0",
+    "date-fns": "^2.30.0",
+    "lucide-react": "^0.289.0",
+    "postcss": "^8.4.24",
+    "react": "^18.2.0",
+    "react-credit-cards-2": "^1.0.1",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.45.1",
+    "react-hot-toast": "^2.4.1",
+    "react-input-mask": "2.0.4",
+    "react-router-dom": "^6.17.0",
+    "solid": "link:@heroicons/react/20/solid",
+    "tailwind-merge": "^1.13.2",
+    "tailwindcss": "^3.3.5",
+    "typescript": "5.1.6",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.1.0",
+    "@types/node": "^20.8.9",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "@typescript-eslint/eslint-plugin": "6.9.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "commitizen": "4.3.0",
+    "eslint": "8.52.0",
+    "eslint-plugin-prettier": "5.0.1",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.3",
+    "prettier": "3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "vite": "^4.5.0",
+    "vite-plugin-rewrite-all": "^1.0.1",
+    "vite-tsconfig-paths": "^4.2.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
