@@ -9,6 +9,5 @@ export async function zipCode({ userAddress }: ZipCodeParams) {
     address: userAddress,
   })
 
-
   return data
 }

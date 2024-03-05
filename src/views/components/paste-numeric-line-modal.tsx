@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Clipboard, X } from 'lucide-react'
 
 import { toast } from 'react-hot-toast'

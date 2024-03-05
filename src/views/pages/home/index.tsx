@@ -1,4 +1,5 @@
-import { Fragment } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { Fragment, useEffect, useState } from 'react'
 
 import { Divide, Plus, XCircle } from 'lucide-react'
 import { CheckIcon } from '@/assets/icons/check'
@@ -11,6 +12,7 @@ import { Button } from '@views/components/button'
 
 import { useHomeController } from '@views/pages/home/use-home-controller'
 import { PasteNumericLineModal } from '@views/components/paste-numeric-line-modal'
+import { InvalidTicketModal } from './components/invalid-ticket-modal'
 
 export const Home = () => {
   const {
@@ -43,8 +45,20 @@ export const Home = () => {
     handleSubmit,
   } = useHomeController()
 
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    if (open === false && numericLineInfo?.days_of_delay > 10) {
+      setOpen(true)
+      setTimeout(() => {
+        window.location.reload()
+      }, 5000)
+    }
+  }, [numericLineInfo?.days_of_delay])
+
   return (
     <div>
+      <InvalidTicketModal open={open} setOpen={setOpen} />
       <main className="flex h-full w-full flex-col items-center justify-center bg-gy-50 px-4 py-8 smx2:px-10 mdx3:px-28">
         <div
           className={cn(
@@ -79,6 +93,7 @@ export const Home = () => {
             className="my-6 h-48 w-48 smx2:ml-6 smx2:mt-0 smx2:h-64 smx2:w-64 md:ml-12 md:h-[22.875rem] md:w-[22.875rem] mdx2:ml-16"
           />
         </div>
+
         <form
           onSubmit={handleSubmit(getTicket)}
           className="h-full w-full max-w-[80rem] rounded bg-white px-4 py-6 text-gy-600 shadow sm:mx-12 sm:px-6 md:mx-32 md:px-8 md:pt-6"
@@ -108,6 +123,7 @@ export const Home = () => {
                   </div>
                 )}
               </div>
+
               <button
                 type="submit"
                 className="group mb-1 mt-4 flex h-[60px] w-full items-center justify-center self-end rounded border-2 border-gn-300 text-gn-400 duration-200 ease-in hover:border-gn-400 hover:bg-gn-400/90 hover:opacity-90 disabled:cursor-not-allowed disabled:border-gy-200 disabled:bg-gy-600 disabled:text-white sm:mt-0 md:mb-0 md:ml-3 md:mt-0 md:w-[20rem] md:self-start"
@@ -124,6 +140,7 @@ export const Home = () => {
             </div>
           </div>
         </form>
+
         {validTicket && (
           <div className="w-full space-y-5 sm:space-y-6 md:flex md:flex-col md:items-center md:space-y-8">
             <div className="h-full w-full max-w-[80rem] rounded bg-white px-4 py-6 text-gy-600 shadow sm:px-6 md:px-8 md:pt-6">

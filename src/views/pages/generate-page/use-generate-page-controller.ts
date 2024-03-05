@@ -10,10 +10,20 @@ export const schema = z.object({
   token: z
     .string({ description: 'O token é obrigatório.' })
     .length(40, 'O token deve ter 40 dígitos.'),
-  establishment: z.string({ description: 'O estabelecimento é obrigatório.' }),
+  establishment: z
+    .string({ description: 'O estabelecimento é obrigatório.' })
+    .min(1, 'O estabelecimento é obrigatório.'),
+  fineValue: z.coerce
+    .number({ description: 'A multa é obrigatória.' })
+    .optional()
+    .default(0.1),
+  dailyArrears: z.coerce
+    .number({ description: 'A mora diária é obrigatória.' })
+    .optional()
+    .default(0.01),
 })
 
-export type GeneratePageParams = z.infer<typeof schema>
+export type FormData = z.infer<typeof schema>
 
 export const useGeneratePageController = () => {
   const [pageUrl, setPageUrl] = useState('')
@@ -22,15 +32,17 @@ export const useGeneratePageController = () => {
     register,
     formState: { errors },
     handleSubmit: hookFormSubmit,
-  } = useForm<GeneratePageParams>({
+  } = useForm<FormData>({
     resolver: zodResolver(schema),
   })
 
-  async function createPage(data: GeneratePageParams) {
+  async function createPage(data: FormData) {
     try {
       const response = await generatePageService.generatePage({
         establishment: data.establishment,
         token: data.token,
+        fineValue: data.fineValue,
+        dailyArrears: data.dailyArrears,
       })
 
       setPageUrl(response.page_url)

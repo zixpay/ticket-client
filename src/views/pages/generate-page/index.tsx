@@ -41,6 +41,20 @@ export const GeneratePage = () => {
           {...register('token')}
         />
 
+        <Input
+          maxLength={40}
+          placeholder="Multa (opcional) Ex. 0.1"
+          error={errors.fineValue?.message as string}
+          {...register('fineValue')}
+        />
+
+        <Input
+          maxLength={40}
+          placeholder="Mora diária (opcional) Ex. 0.01"
+          error={errors.dailyArrears?.message as string}
+          {...register('dailyArrears')}
+        />
+
         <div className="flex h-auto w-full justify-center pb-20">
           <Button
             type="submit"
